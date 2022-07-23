@@ -9,10 +9,10 @@ VERSION="0.1"
 # Display the logo
 displayLogo(){
 	echo -e "
-----------------------------------------
-NullCell Cybersecurity Tools Install
-v$VERSION - $YELLOW@NullCell8822$RESET
-----------------------------------------"
+-----------------------------------
+5hyl0ck Cybersecurity Tools Install
+v$VERSION - $YELLOW@5hyl0ck$RESET
+-----------------------------------"
 }
 
 # Basic requirements
@@ -102,8 +102,42 @@ getWebTools(){
 	go install github.com/projectdiscovery/subfinder/v2/cmd/subfinder@latest
 	echo -e "[$GREEN+$RESET] Done."
 	
+	echo -e "[$GREEN+$RESET] Installing cookiemonster .."
+	go install github.com/iangcarroll/cookiemonster/cmd/cookiemonster@latest
+	echo -e "[$GREEN+$RESET] Done."
+
+	echo -e "[$GREEN+$RESET] Installing chronos .."
+	go install github.com/mhmdiaa/chronos@latest
+	echo -e "[$GREEN+$RESET] Done."
+
+	echo -e "[$GREEN+$RESET] Installing dalfox .."
+	go install github.com/hahwul/dalfox/v2@latest
+	echo -e "[$GREEN+$RESET] Done."
+
+
+	echo -e "[$GREEN+$RESET] Installing goverview .."
+	GO111MODULE=on go install github.com/j3ssie/goverview@latest
+	echo -e "[$GREEN+$RESET] Done."
+
+	echo -e "[$GREEN+$RESET] Installing smap .."
+	go install -v github.com/s0md3v/smap/cmd/smap@latest
+	echo -e "[$GREEN+$RESET] Done."
+
+	echo -e "[$GREEN+$RESET] Installing naabu .."
+	go install -v github.com/projectdiscovery/naabu/v2/cmd/naabu@latest
+	echo -e "[$GREEN+$RESET] Done."
+
+	echo -e "[$GREEN+$RESET] Installing cero.."
+	GO111MODULE=on go install github.com/glebarez/cero@latest
+	echo -e "[$GREEN+$RESET] Done."
+
+	echo -e "[$GREEN+$RESET] Installing hakip2host.."
+	go install github.com/hakluke/hakip2host@latest
+	echo -e "[$GREEN+$RESET] Done."
+
+
 	echo -e "[$GREEN+$RESET] Installing gospider.."
-	GO111MODULE=on go get -u github.com/jaeles-project/gospider
+	GO111MODULE=on go install github.com/jaeles-project/gospider@latest
 	echo -e "[$GREEN+$RESET] Done."
 	
 	echo -e "[$GREEN+$RESET] Installing subjack.."
@@ -117,6 +151,10 @@ getWebTools(){
 
 	echo -e "[$GREEN+$RESET] Installing assetfinder.."
 	go install github.com/tomnomnom/assetfinder@latest
+	echo -e "[$GREEN+$RESET] Done."
+
+	echo -e "[$GREEN+$RESET] Installing gauplus.."
+	go install github.com/bp0lr/gauplus@latest
 	echo -e "[$GREEN+$RESET] Done."
 
 	echo -e "[$GREEN+$RESET] Installing unfurl.."
@@ -145,6 +183,15 @@ getWebTools(){
 
 	echo -e "[$GREEN+$RESET] Installing ffuf.."
 	go install github.com/ffuf/ffuf@latest
+	echo -e "[$GREEN+$RESET] Done."
+
+
+	echo -e "[$GREEN+$RESET] Installing gitrob.."
+	go install github.com/michenriksen/gitrob@latest
+	echo -e "[$GREEN+$RESET] Done."
+
+	echo -e "[$GREEN+$RESET] Installing authz0 .."
+	go install github.com/hahwul/authz0@latest
 	echo -e "[$GREEN+$RESET] Done."
 
 	echo -e "[$GREEN+$RESET] Installing gobuster.."
@@ -182,12 +229,18 @@ getWebTools(){
 
 	: 'Python tools'
 	echo -e "[$GREEN+$RESET] Installing Altdns, droopescan, raccoon.."
-	python3 -m pip install py-altdns droopescan pysqlcipher3
+	python3 -m pip3 install py-altdns droopescan pysqlcipher3 cloudscraper apkleaks parth flask-unsign flask-unsign-wordlist
+	pip3 install -U pacu 
 	echo -e "[$GREEN+$RESET] Done."
 
 	: 'Ruby tools'
 	echo -e "[$GREEN+$RESET] Installing wpscan"
 	sudo gem install wpscan
+	echo -e "[$GREEN+$RESET] Done."
+
+
+	echo -e "[$GREEN+$RESET] Installing feroxbuster"
+	curl -sL https://raw.githubusercontent.com/epi052/feroxbuster/master/install-nix.sh | bash
 	echo -e "[$GREEN+$RESET] Done."
 
 	: 'Github tools'
@@ -400,13 +453,84 @@ getWebTools(){
 	fi
 	echo -e "[$GREEN+$RESET] Done."
 
+
+	echo -e "[$GREEN+$RESET] Installing Sublist3r .."
+	if [ -e "$HOME"/tools/Sublist3r/ ]; then
+		echo -e "[$GREEN+$RESET] Already installed."
+	else
+		cd "$HOME"/tools/ || return
+		git clone https://github.com/aboul3la/Sublist3r.git
+		cd Sublist3r && pip3 install -r requirements.txt && cd -
+		echo -e "[$GREEN+$RESET] Done."
+	fi
+
+	echo -e "[$GREEN+$RESET] Installing googlecertfarm .."
+	if [ -e "$HOME"/tools/googlecertfarm/ ]; then
+		echo -e "[$GREEN+$RESET] Already installed."
+	else
+		cd "$HOME"/tools/ || return
+		git clone https://github.com/rook1337/googlecertfarm
+		echo -e "[$GREEN+$RESET] Done."
+	fi
+
+
+
+	echo -e "[$GREEN+$RESET] Installing hatcloud .."
+	if [ -e "$HOME"/tools/HatCloud/ ]; then
+		echo -e "[$GREEN+$RESET] Already installed."
+	else
+		cd "$HOME"/tools/ || return
+		git clone https://github.com/HatBashBR/HatCloud.git
+		echo -e "[$GREEN+$RESET] Done."
+	fi
+
+
+	echo -e "[$GREEN+$RESET] Installing crimeflare .."
+	if [ -e "$HOME"/tools/CloudPeler/ ]; then
+		echo -e "[$GREEN+$RESET] Already installed."
+	else
+		cd "$HOME"/tools/ || return
+		git clone https://github.com/zidansec/CloudPeler.git
+		echo -e "[$GREEN+$RESET] Done."
+	fi
+
+
+	echo -e "[$GREEN+$RESET] Installing firewall-bypasser-dns .."
+	if [ -e "$HOME"/tools/bypass-firewalls-by-DNS-history/ ]; then
+		echo -e "[$GREEN+$RESET] Already installed."
+	else
+		cd "$HOME"/tools/ || return
+		git clone https://github.com/vincentcox/bypass-firewalls-by-DNS-history.git
+		echo -e "[$GREEN+$RESET] Done."
+	fi
+
+	echo -e "[$GREEN+$RESET] Installing CloudFail .."
+	if [ -e "$HOME"/tools/CloudFail/ ]; then
+		echo -e "[$GREEN+$RESET] Already installed."
+	else
+		cd "$HOME"/tools/ || return
+		git clone https://github.com/m0rtem/CloudFail.git
+		cd CloudFail && pip3 install -r requirements.txt && cd -
+		echo -e "[$GREEN+$RESET] Done."
+	fi
+
+	echo -e "[$GREEN+$RESET] Installing cloudip.sh .."
+	if [ -e "$HOME"/tools/cloudip.sh ]; then
+		echo -e "[$GREEN+$RESET] Already installed."
+	else
+		cd "$HOME"/tools/ || return
+		wget https://raw.githubusercontent.com/Top-Hat-Sec/thsosrtl/master/CloudIP/cloudip.sh
+		echo -e "[$GREEN+$RESET] Done."
+	fi
+
+
 }
 
 getWordlists(){
 	echo -e "[$GREEN+$RESET] Getting Wordlists"
 	cd ~/tools
 
-	echo -e "[$GREEN+$RESET] Downloading SecLists.."
+	echo -e "[$GREEN+$RESET] installing SecLists.."
 	if [ -e "$HOME"/tools/seclists/ ] || [ -e /usr/share/seclists/ ]; then
 		echo -e "[$GREEN+$RESET] Already installed."
 	else
@@ -415,7 +539,7 @@ getWordlists(){
 		echo -e "[$GREEN+$RESET] Done."
 	fi
 
-	echo -e "[$GREEN+$RESET] Downloading Fuzzdb.."
+	echo -e "[$GREEN+$RESET] installing Fuzzdb.."
 	if [ -e "$HOME"/tools/fuzzdb/ ]; then
 		echo -e "[$GREEN+$RESET] Already installed."
 	else
@@ -423,13 +547,249 @@ getWordlists(){
 		git clone https://github.com/fuzzdb-project/fuzzdb.git
 		echo -e "[$GREEN+$RESET] Done."
 	fi
+
+
+
+
+	echo -e "[$GREEN+$RESET] installing trufflehog .."
+	if [ -e "$HOME"/tools/trufflehog/ ]; then
+		echo -e "[$GREEN+$RESET] Already installed."
+	else
+		cd "$HOME"/tools/ || return
+		git clone https://github.com/trufflesecurity/trufflehog.git
+		cd trufflehog; go install
+		echo -e "[$GREEN+$RESET] Done."
+	fi
+
+
+
+
+	echo -e "[$GREEN+$RESET] installing combobulator .."
+	if [ -e "$HOME"/tools/combobulator/ ]; then
+		echo -e "[$GREEN+$RESET] Already installed."
+	else
+		cd "$HOME"/tools/ || return
+		git clone https://github.com/apiiro/combobulator.git
+		cd combobulator || return 
+		pip3 install -r requirements.txt
+		echo -e "[$GREEN+$RESET] Done."
+	fi
+
+
+	echo -e "[$GREEN+$RESET] installing CMSmap .."
+	if [ -e "$HOME"/tools/CMSmap/ ]; then
+		echo -e "[$GREEN+$RESET] Already installed."
+	else
+		cd "$HOME"/tools/ || return
+		git clone https://github.com/Dionach/CMSmap
+		cd CMSmap; pip3 install .
+		echo -e "[$GREEN+$RESET] Done."
+	fi
+
+
+
+	echo -e "[$GREEN+$RESET] installing wafw00f .."
+	if [ -e "$HOME"/tools/wafw00f/ ]; then
+		echo -e "[$GREEN+$RESET] Already installed."
+	else
+		cd "$HOME"/tools/ || return
+		git clone https://github.com/EnableSecurity/wafw00f.git
+		cd wafw00f || return
+		python3 setup.py install
+		echo -e "[$GREEN+$RESET] Done."
+	fi
+
+
+	echo -e "[$GREEN+$RESET] installing s3cario .."
+	if [ -e "$HOME"/tools/s3cario/ ]; then
+		echo -e "[$GREEN+$RESET] Already installed."
+	else
+		cd "$HOME"/tools/ || return
+		git clone https://github.com/0xspade/s3cario.git
+		cd s3cario || return
+		pip3 install -r requirements.txt
+		echo -e "[$GREEN+$RESET] Done."
+	fi
+
+
+	echo -e "[$GREEN+$RESET] installing MobSF Docker  .."
+	docker pull opensecurity/mobile-security-framework-mobsf
+	echo -e "[$GREEN+$RESET] Done."
+
+
+
+	echo -e "[$GREEN+$RESET] installing APKEnum .."
+	if [ -e "$HOME"/tools/APKEnum/ ]; then
+		echo -e "[$GREEN+$RESET] Already installed."
+	else
+		cd "$HOME"/tools/ || return
+		git clone https://github.com/shivsahni/APKEnum.git
+		echo -e "[$GREEN+$RESET] Done."
+	fi
+
+
+	echo -e "[$GREEN+$RESET] installing Diggy .."
+	if [ -e "$HOME"/tools/Diggy/ ]; then
+		echo -e "[$GREEN+$RESET] Already installed."
+	else
+		cd "$HOME"/tools/ || return
+		git clone https://github.com/s0md3v/Diggy.git
+		echo -e "[$GREEN+$RESET] Done."
+	fi
+
+	echo -e "[$GREEN+$RESET] installing ReconCat .."
+	if [ -e "$HOME"/tools/ReconCat/ ]; then
+		echo -e "[$GREEN+$RESET] Already installed."
+	else
+		cd "$HOME"/tools/ || return
+		git clone https://github.com/daudmalik06/ReconCat.git
+		echo -e "[$GREEN+$RESET] Done."
+	fi
+
+
+	echo -e "[$GREEN+$RESET] installing ParamSpider .."
+	if [ -e "$HOME"/tools/ParamSpider/ ]; then
+		echo -e "[$GREEN+$RESET] Already installed."
+	else
+		cd "$HOME"/tools/ || return
+		git clone https://github.com/devanshbatham/ParamSpider.git
+		cd ParamSpider || return
+		pip3 install -r requirements.txt
+		echo -e "[$GREEN+$RESET] Done."
+	fi
+
+	echo -e "[$GREEN+$RESET] installing commoncrawl .."
+	if [ -e "$HOME"/tools/commoncrawl/ ]; then
+		echo -e "[$GREEN+$RESET] Already installed."
+	else
+		cd "$HOME"/tools/ || return
+		git clone https://github.com/ghostlulzhacks/commoncrawl.git
+	fi
+
+
+	echo -e "[$GREEN+$RESET] installing JSFScan .."
+	if [ -e "$HOME"/tools/JSFScan.sh ]; then
+		echo -e "[$GREEN+$RESET] Already installed."
+	else
+		cd "$HOME"/tools/ || return
+		git clone https://github.com/KathanP19/JSFScan.sh
+		cd JSFScan.sh || return
+		sudo chmod +x install.sh && ./install.sh
+	fi
+
+
+	echo -e "[$GREEN+$RESET] installing kiterunner .."
+	if [ -e "$HOME"/tools/kiterunner ]; then
+		echo -e "[$GREEN+$RESET] Already installed."
+	else
+		cd "$HOME"/tools/ || return
+		git clone https://github.com/assetnote/kiterunner.git
+		cd kiterunner || return
+		make build
+		sudo ln -s $(pwd)/dist/kr /usr/local/bin/kr
+	fi
+
+	echo -e "[$GREEN+$RESET] installing nikto .."
+	if [ -e "$HOME"/tools/nikto ]; then
+		echo -e "[$GREEN+$RESET] Already installed."
+	else
+		cd "$HOME"/tools/ || return
+		git clone https://github.com/sullo/nikto
+		cd nikto || return
+	fi
+
+
+	echo -e "[$GREEN+$RESET] installing parameth .."
+	if [ -e "$HOME"/tools/parameth ]; then
+		echo -e "[$GREEN+$RESET] Already installed."
+	else
+		cd "$HOME"/tools/ || return
+		git clone https://github.com/maK-/parameth.git
+		cd parameth || return
+		pip3 install -u -r requirements.txt
+	fi
+
+
+	echo -e "[$GREEN+$RESET] installing tplmap .."
+	if [ -e "$HOME"/tools/tplmap/ ]; then
+		echo -e "[$GREEN+$RESET] Already installed."
+	else
+		cd "$HOME"/tools/ || return
+		git clone https://github.com/epinna/tplmap.git
+		cd tplmap || return
+		pip3 install -r requirements.txt
+	fi
+
+
+	echo -e "[$GREEN+$RESET] installing Corsy .."
+	if [ -e "$HOME"/tools/Corsy ]; then
+		echo -e "[$GREEN+$RESET] Already installed."
+	else
+		cd "$HOME"/tools/ || return
+		git clone https://github.com/s0md3v/Corsy.git
+		cd Corsy || return
+		pip3 install -r requirements.txt
+	fi
+
+
+	echo -e "[$GREEN+$RESET] installing bfac .."
+	if [ -e "$HOME"/tools/bfac ]; then
+		echo -e "[$GREEN+$RESET] Already installed."
+	else
+		cd "$HOME"/tools/ || return
+		git clone https://github.com/mazen160/bfac.git
+		cd bfac || return
+		pip3 install -r requirements.txt
+		sudo python3 setup.py install
+	fi
+
+
+	echo -e "[$GREEN+$RESET] installing smuggler .."
+	if [ -e "$HOME"/tools/smuggler ]; then
+		echo -e "[$GREEN+$RESET] Already installed."
+	else
+		cd "$HOME"/tools/ || return
+		git clone https://github.com/defparam/smuggler.git
+	fi
+
+
+	echo -e "[$GREEN+$RESET] installing aem-hacker .."
+	if [ -e "$HOME"/tools/aem-hacker ]; then
+		echo -e "[$GREEN+$RESET] Already installed."
+	else
+		cd "$HOME"/tools/ || return
+		git clone https://github.com/0ang3el/aem-hacker
+	fi
+
+
+
+	echo -e "[$GREEN+$RESET] installing jwt-pwn .."
+	if [ -e "$HOME"/tools/jwt-pwn ]; then
+		echo -e "[$GREEN+$RESET] Already installed."
+	else
+		cd "$HOME"/tools/ || return
+		git clone https://github.com/mazen160/jwt-pwn.git
+		cd jwt-pwn || return
+	fi
+
+	echo -e "[$GREEN+$RESET] installing XSS-Catcher .."
+	if [ -e "$HOME"/tools/XSS-Catcher ]; then
+		echo -e "[$GREEN+$RESET] Already installed."
+	else
+		cd "$HOME"/tools/ || return
+		git clone https://github.com/daxAKAhackerman/XSS-Catcher.git
+		cd XSS-Catcher || return
+		# make start
+	fi
+
+
 }
 
 : 'Github tools'
 getPostExploitTools(){
 	cd ~/tools
 
-	echo -e "[$GREEN+$RESET] Downloading LinEnum, PEASS, linux-exploit-suggester and windows-exploit-suggester.."
+	echo -e "[$GREEN+$RESET] installing LinEnum, PEASS, linux-exploit-suggester and windows-exploit-suggester.."
 	git clone https://github.com/rebootuser/LinEnum.git linenum
 	git clone https://github.com/carlospolop/PEASS-ng.git peass
 	git clone https://github.com/mzet-/linux-exploit-suggester.git
@@ -480,3 +840,9 @@ getGeneralTools
 getPostExploitTools
 getWordlists
 getWebTools
+
+
+
+
+
+
