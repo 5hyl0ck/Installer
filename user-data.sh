@@ -1,1 +1,2 @@
-echo "kill me now"
+#!/bin/bash
+yum update -y
